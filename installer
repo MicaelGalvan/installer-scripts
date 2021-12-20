@@ -1,0 +1,56 @@
+# Actualizar el sistema
+echo "UPDATING SYSTEM..."
+sudo apt update -y && sudo apt upgrade -y &> /dev/null
+
+# Installer google chromium
+echo "INSTALLING CHROME..."
+wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb &> /dev/null
+sudo apt install ./google-chrome-stable_current_amd64.deb &> /dev/null
+sudo rm google-chrome-stable_current_amd64.deb &> /dev/null
+
+# install vscode
+echo "INSTALLING VSCODE..."
+sudo snap install --classic code &> /dev/null
+
+echo "INSTALLING SLACK..."
+sudo snap install slack --classic &> /dev/null
+
+# cURL
+echo "INSTALLING CURL..."
+sudo apt install -y curl &> /dev/null
+
+# Node
+echo "INSTALLING NODE..."
+curl -sL https://deb.nodesource.com/setup_10.x | sudo -E bash - &> /dev/null
+sudo apt 
+install -y nodejs &> /dev/null
+
+
+
+# Spotify
+echo "INSTALLING SPOTIFY..."
+snap install spotify
+curl -sS https://download.spotify.com/debian/pubkey_5E3C45D7B312C643.gpg | sudo apt-key add - 
+echo "deb http://repository.spotify.com stable non-free" | sudo tee /etc/apt/sources.list.d/spotify.list
+sudo apt-get update && sudo apt-get install spotify-client
+
+#discord
+echo "INSTALLING DISCORD..."
+cd ~/Downloads
+wget -O discord.deb "https://discordapp.com/api/download?platform=linux&format=deb"
+sudo apt install ./discord.deb
+
+#postman
+echo "INSTALLING POSTMAN..."
+sudo snap install postman
+
+
+#github
+echo "INSTALLING GIT"
+sudo apt-get install git
+
+# Yarn
+echo "INSTALLING YARN..."
+curl -sL https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add - &> /dev/null
+echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list &> /dev/null
+sudo apt-get update && sudo apt-get install -y yarn &> /dev/null
